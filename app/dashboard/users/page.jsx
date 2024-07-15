@@ -6,6 +6,7 @@ import { fetchUsers } from "@/app/lib/data";
 import Pagination from "@/app/ui/dashboard/pagination/pagination";
 
 import styles from "../../ui/dashboard/users/users.module.css";
+import { deleteUser } from "@/app/lib/actions";
 
 const UsersPage = async ({ searchParams }) => {
   const q = searchParams?.q || "";
@@ -58,11 +59,12 @@ const UsersPage = async ({ searchParams }) => {
                     </button>
                   </Link>
 
-                  <Link href="/">
+                  <form action={deleteUser}>
+                    <input type="hidden" name="id" value={user?.id} />
                     <button className={`${styles.button} ${styles.delete}`}>
                       Delete
                     </button>
-                  </Link>
+                  </form>
                 </div>
               </td>
             </tr>
