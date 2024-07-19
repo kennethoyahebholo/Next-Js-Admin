@@ -1,8 +1,8 @@
 "use client";
 
-import { useFormState } from "react-dom";
 import { authenticate } from "@/app/lib/actions";
 import styles from "./loginForm.module.css";
+import { useFormState } from "react-dom";
 
 const LoginForm = () => {
   const [state, formAction] = useFormState(authenticate, undefined);
