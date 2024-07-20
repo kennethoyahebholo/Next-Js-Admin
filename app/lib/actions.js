@@ -45,10 +45,12 @@ export const updateUser = async (formData) => {
   try {
     connectToDB();
 
+    const hashedPassword = await bcrypt.hash(password, 10);
+
     const updateFields = {
       username,
       email,
-      password,
+      password: hashedPassword,
       phone,
       address,
       isAdmin,
